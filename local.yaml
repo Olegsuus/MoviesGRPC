@@ -1,0 +1,13 @@
+config_path: "local.yaml"
+
+app:
+  name: "MovieService"
+  env: "local"
+  grpc:
+    port: 50051
+
+mongo:
+  connect_string: "mongodb://localhost:27017"
+  database: "movie_service_db"
+  collections:
+    movies: "movies"
