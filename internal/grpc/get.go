@@ -12,7 +12,7 @@ import (
 func (s *MovieServer) Get(ctx context.Context, req *moviepb.GetRequest) (*moviepb.GetResponse, error) {
 	const op = "grpc.get"
 
-	logger := s.l.With(slog.String("op", op))
+	logger := slog.With(slog.String("op", op))
 
 	movieModels, err := s.msP.Get(ctx, req.Id)
 	if err != nil {

@@ -11,7 +11,7 @@ import (
 func (s *MovieServer) Remove(ctx context.Context, req *moviepb.RemoveRequest) (*moviepb.RemoveResponse, error) {
 	const op = "grpc.remove"
 
-	logger := s.l.With(slog.String("op", op))
+	logger := slog.With(slog.String("op", op))
 
 	err := s.msP.Remove(ctx, req.Id)
 	if err != nil {

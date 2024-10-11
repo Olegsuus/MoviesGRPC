@@ -12,7 +12,7 @@ import (
 func (s *MovieServer) Add(ctx context.Context, req *moviepb.AddRequest) (*moviepb.AddResponse, error) {
 	const op = "grpc.add"
 
-	logger := s.l.With(slog.String("op", op))
+	logger := slog.With(slog.String("op", op))
 
 	movie := &models.Movie{
 		Title:       req.Movie.Title,

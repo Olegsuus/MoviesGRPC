@@ -7,8 +7,9 @@ import (
 )
 
 func (s *MovieService) TranslatorToModels(_ context.Context, storageMovie storage_models.Movie) (*models.Movie, error) {
+
 	return &models.Movie{
-		ID:          storageMovie.ID,
+		ID:          storageMovie.ID.Hex(),
 		Title:       storageMovie.Title,
 		Description: storageMovie.Description,
 		Year:        storageMovie.Year,
@@ -21,7 +22,6 @@ func (s *MovieService) TranslatorToModels(_ context.Context, storageMovie storag
 
 func (s *MovieService) TranslatoToStorage(_ context.Context, movie models.Movie) (*storage_models.Movie, error) {
 	return &storage_models.Movie{
-		ID:          movie.ID,
 		Title:       movie.Title,
 		Description: movie.Description,
 		Year:        movie.Year,

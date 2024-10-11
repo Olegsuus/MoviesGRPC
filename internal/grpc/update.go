@@ -12,7 +12,7 @@ import (
 func (s *MovieServer) Update(ctx context.Context, req *moviepb.UpdateRequest) (*moviepb.UpdateResponse, error) {
 	const op = "grpc.update"
 
-	logger := s.l.With(slog.String("op", op))
+	logger := slog.With(slog.String("op", op))
 
 	update := bson.M{}
 	if req.Movie.Title != "" {

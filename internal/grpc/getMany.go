@@ -11,7 +11,7 @@ import (
 func (s *MovieServer) GetMany(ctx context.Context, req *moviepb.GetManyRequest) (*moviepb.GetManyResponse, error) {
 	const op = "grpc.getMany"
 
-	logger := s.l.With(slog.String("op", op))
+	logger := slog.With(slog.String("op", op))
 
 	sortField := ""
 	if req.SortByYear {
